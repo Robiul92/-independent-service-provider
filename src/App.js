@@ -8,6 +8,7 @@ import Header from './Shared/Header/Header';
 import Footer from './Shared/Footer/Footer';
 import ServiceDetails from './Pages/ServiceDetails/ServiceDetails';
 import NotFound from './Pages/NotFound/NotFound';
+import Blog from './Pages/Blog/Blog';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='service/:serviceId' element={<ServiceDetails></ServiceDetails>}></Route>
         <Route path='/about' element={<About></About>}></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
