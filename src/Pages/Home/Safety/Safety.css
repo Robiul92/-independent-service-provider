@@ -1,0 +1,29 @@
+.sefty-title{
+    text-align: center;
+    margin: 20px;
+    color: blue;
+}
+
+.guidelines{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.riders-guideline{
+    background-color: lavender;
+    border-radius: 5px;
+}
+
+.chefs-guideline{
+    background-color: black;
+}
+
+
+
+
+@media only screen and (max-width: 576px) {
+    .guidelines{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
