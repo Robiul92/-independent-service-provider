@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import SocialLogin from './SocialLogin/SocialLogin';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -12,6 +13,8 @@ const Login = () => {
 
     let from = location.state?.from?.pathname || "/";
 
+    let errorElement;
+
     const [
         signInWithEmailAndPassword,
         user,
@@ -19,9 +22,18 @@ const Login = () => {
         error,
       ] = useSignInWithEmailAndPassword(auth);
 
+      
+
 if(user){
     navigate(from, { replace: true });
 }
+
+if (error) {
+        
+    errorElement =  <p className='text-danger'>Error: {error.message}</p>
+      
+    
+  }
 
 
     const handleSubmit = event =>{
@@ -36,8 +48,18 @@ if(user){
         navigate('/register');
     }
 
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(
+        auth)
+
+    const resetPassword = async () =>{
+        const email = emailRef.current.value;
+        await sendPasswordResetEmail(email);
+        alert('Sent email');
+
+    }
+
     return (
-        <div className='mb-5 container w-50 mx-auto p-5'>
+        <div className='mb-5 container w-50 mx-auto p-5 mb-5'>
             <h1 className='text-center text-primary'>Please login</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -56,7 +78,13 @@ if(user){
                 <Button variant="primary" type="submit">
                     Login
                 </Button>
+                <p className='pt-2 mt-3'> <button variant="primary" className='text-danger text-decoration-none' onClick={resetPassword}>Forget Password? </button> </p>
             </Form>
+
+            <div className='mt-3'>
+            <SocialLogin></SocialLogin>
+            </div>
+            {errorElement}
             
         </div>
     );
