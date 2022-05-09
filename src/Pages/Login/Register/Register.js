@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init'
 
 const Register = () => {
+
+    const emailRef = useRef('');
+    const passwordRef= useRef('');
+
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useCreateUserWithEmailAndPassword(auth);
 
     const navigate = useNavigate();
 
@@ -12,11 +24,18 @@ const Register = () => {
         // const email = event.target.email.value;
         // const password = event.target.password.value;
 
-        console.log(event);
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+
+        createUserWithEmailAndPassword(email, password);
     }
 
     const navigaretoLogin = () =>{
         navigate('/login')
+    }
+
+    if (user){
+        navigate('/home');
     }
 
     return (
@@ -36,7 +55,7 @@ const Register = () => {
   <Form.Group className="mb-3" controlId="formBasicEmail">
       
     <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" required/>
+    <Form.Control ref={emailRef} type="email" placeholder="Enter email" required/>
     <Form.Text className="text-muted">
       Please put your valid email address.
     </Form.Text>
@@ -44,7 +63,7 @@ const Register = () => {
 
   <Form.Group className="mb-3" controlId="formBasicPassword">
     <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" required />
+    <Form.Control ref={passwordRef} type="password" placeholder="Password" required />
   </Form.Group>
 
   <p>Already Have an Account? <Link to="/login" className='text-danger text-decoration-none' onClick={navigaretoLogin}>Please Login</Link> </p>
