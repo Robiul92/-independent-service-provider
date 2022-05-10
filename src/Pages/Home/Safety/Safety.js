@@ -1,4 +1,6 @@
 import React from 'react';
+import riders from '../../../Images/riders-png 1.png'
+import chef from '../../../Images/Chef-Cartoon.png'
 import './Safety.css'
 
 const Safety = () => {
@@ -8,6 +10,7 @@ const Safety = () => {
                 100% Safety Standards</h1>
             <div className="guidelines">
             <div className="riders-guideline">
+                <img src={riders} alt="" />
                 <h2 className='text-primary text-center m-4'>RIDERS DELIVERY GUIDELINES.</h2>
                 <div>
                     <h4 className='text-success text-center'>SANITIZATION STANDARDS</h4>
@@ -24,6 +27,7 @@ const Safety = () => {
             </div>
 
             <div className="bg-light rounded">
+            <img  style={{height:'350px'}} className={'w-100'} src={chef} alt="" />
                 <h2 className='text-primary text-center m-4'>HOME CHEFS COOKING GUIDELINES.</h2>
                 <div>
                     <h4 className='text-secondary text-center'>CLEANING & SANITIZATION</h4>
