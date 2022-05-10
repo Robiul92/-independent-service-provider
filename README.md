@@ -1,8 +1,8 @@
 # Getting Started with homefoodi App
 
-Website type: Home food catering
-Website Title: homefoodi
-Website live link: https://personal-portfolio-8404f.web.app
+# Website type: Home food catering
+# Website Title: homefoodi
+# Website live link: https://personal-portfolio-8404f.web.app
 
 # Features and Functionality 
 
