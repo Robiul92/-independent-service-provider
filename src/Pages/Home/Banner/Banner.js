@@ -17,8 +17,8 @@ const Banner = () => {
       alt="First slide"
     />
     <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      <h3>Plant-Based Southern Fried Style Chicken</h3>
+      <p>A great party platter addition, lunchtime snack, and children's favourite. These are high protein, low in fat, and soya-free.</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -29,8 +29,8 @@ const Banner = () => {
     />
 
     <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <h3>Chicken Griled Leg Piece Special</h3>
+      <p> Enjoy 8pcs of Hot & Crispy along with 12pcs of Hot Wings only at Tk.599.</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -41,8 +41,8 @@ const Banner = () => {
     />
 
     <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      <h3>Plant-Based Cheese Pizza</h3>
+      <p>This great-tasting meat-free sausage has all the flavour and texture of a classic hot dog but has been modernised to be entirely vegan, vegetarian and plant-based..</p>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
